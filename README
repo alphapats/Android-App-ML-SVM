@@ -1,0 +1,19 @@
+Name: Amit Pathania
+Roll No: 163054001
+***********************************************************
+Two folders:
+(a) Without linear accel: Here only 3 values (accelx, accely, accelz) were used as recieved from accerelometer to train model. Folder contains train data, test data and  the corresponding output file. 
+(b) Without linear accel: Here 6 values  were used.(accelx, accely, accelz,linearacclerationx ,linearacclerationy, linearacclerationz). 3 values (accelx, accely, accelz) were used as recieved from accerelometer and linear acceleration is calculated using following method: 
+	final float alpha = 0.8f;
+	//gravity is calculated here
+        	gravity[0] = alpha * gravity[0] + (1 - alpha) * x;
+       	gravity[1] = alpha * gravity[1] + (1 - alpha)* y;
+        	gravity[2] = alpha * gravity[2] + (1 - alpha) * z;
+	//acceleration retrieved from the event and the gravity is removed
+        	linear_acceleration[0] = x - gravity[0];
+        	linear_acceleration[1] = y - gravity[1];
+        	linear_acceleration[2] = z - gravity[2];
+
+ This gave better accuracy and precision.Folder contains train data, test data and  the corresponding output file. 
+
+ 
